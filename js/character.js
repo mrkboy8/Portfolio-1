@@ -6,7 +6,8 @@ scene = new THREE.Scene();
 scene.background = new THREE.Color(0xdddddd);
 
 camera = new THREE.PerspectiveCamera(40,window.innerWidth/window.innerHeight,1,5000);
-camera.rotation.y = 80/180*Math.PI;
+camera.rotation.y = 1;
+camera.rotation.z = 1;
 camera.position.x = -2000;
 camera.position.y = 100;
 camera.position.z = 100;
@@ -43,9 +44,9 @@ controls = new THREE.OrbitControls(camera,renderer.domElement);
 controls.addEventListener('change', renderer);
 
 let loader = new THREE.GLTFLoader();
-loader.load('../js/Character.glb', function(gltf){
+loader.load('../assets/Body1.gltf', function(gltf){
     char = gltf.scene.children[0];
-    char.scale.set(50,50,50);
+    char.scale.set(80,80,80);
     scene.add(gltf.scene);
     renderer.render(scene,camera);
     animate();
@@ -53,6 +54,7 @@ loader.load('../js/Character.glb', function(gltf){
 function animate() {
     renderer.render(scene,camera);
     requestAnimationFrame(animate);
+    console.log(camera.rotation);
 };
 }
 
