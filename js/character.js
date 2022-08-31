@@ -43,7 +43,7 @@ controls = new THREE.OrbitControls(camera,renderer.domElement);
 controls.addEventListener('change', renderer);
 
 let loader = new THREE.GLTFLoader();
-loader.load('../assets/Character.glb', function(gltf){
+loader.load('../js/Character.glb', function(gltf){
     char = gltf.scene.children[0];
     char.scale.set(50,50,50);
     scene.add(gltf.scene);
